@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import Navbar from "../Shared/Navbar/Navbar";
 
 
-const Login = () => {
+const Register = () => {
 
-    const handleLogin = e => {
+    const handleRegister = e => {
         e.preventDefault();
         console.log(e.currentTarget);
         const form = new FormData(e.currentTarget);
@@ -15,13 +15,27 @@ const Login = () => {
         <div>
             <Navbar></Navbar>
             <div>
-                <h2 className="text-3xl my-10 text-center">Please Login</h2>
+                <h2 className="text-3xl my-10 text-center">Please Register</h2>
 
                 <div className="hero bg-base-200 py-10">
                     <div className="hero-content flex-col lg:flex-row-reverse">
 
                         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                            <form onSubmit={handleLogin} className="card-body">
+                            <form onSubmit={handleRegister} className="card-body">
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Name</span>
+                                    </label>
+                                    <input type="text"
+                                        name="name" placeholder="Name" className="input input-bordered" required />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Photo URL</span>
+                                    </label>
+                                    <input type="text"
+                                        name="photo" placeholder="Photo URL" className="input input-bordered" required />
+                                </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
@@ -41,10 +55,10 @@ const Login = () => {
                                     </label>
                                 </div>
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-primary">Login</button>
+                                    <button className="btn btn-primary">Register</button>
                                 </div>
                             </form>
-                            <p className="p-4">Do not have an account? please <Link className="underline hover:text-blue-500" to="/register">Register</Link></p>
+                            <p className="p-4">Already have an account? please <Link className="underline hover:text-blue-500" to="/login">Login</Link></p>
                         </div>
                     </div>
                 </div>
@@ -54,4 +68,4 @@ const Login = () => {
     );
 }
 
-export default Login;
+export default Register;
